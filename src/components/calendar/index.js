@@ -21,18 +21,26 @@ export default class Calendar extends React.Component {
                     }}
                     initialView='timeGridDay'
                     nowIndicator={true}
-                    now = {moment().format("YYYY-MM-DDTHH:mm:ss[Z]")}            
-                    allDayContent={false}
-                    timeFormat={'H(:mm)'}
-                    /*slotLabelFormat= {[
-                    { month: 'long', year: 'numeric' }, // top level of text
-                    { weekday: 'short' } // lower level of text
-                    ]}*/
+                    now = {moment().format("YYYY-MM-DDTHH:mm:ss[Z]")} 
+
+                    allDaySlot={false}
+
+                    slotLabelFormat= {[
+                        { 
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        omitZeroMinute: false,
+                        }
+                    ]}
+
+                    
+                    slotMinTime='06:00'
+                    slotMaxTime='18:00'
+
+                    contentHeight={600}
                     eventTimeFormat= {{ // like '14:30:00'
                     hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12:true    
+                    minute: '2-digit'
                     }}
                     firstHour= {7}
                     buttonText={{
@@ -44,9 +52,10 @@ export default class Calendar extends React.Component {
                     views = {[
                     {
                         timeGridDay: { // name of view
-                        titleFormat: { year: 'string', month: '4-digit', day: '4-digit' }
+                        titleFormat: { year: 'string', month: '4-digit', day: '4-digit'}
                         // other view-specific options here
-                    }
+                        }
+                        
                     }
                 ]}
                 timeZone= 'UTC'
